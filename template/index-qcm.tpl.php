@@ -1,25 +1,24 @@
 <?php require '../template/partials/_top.tpl.php'; ?>
 <div class="container">
-    <h1>Mes questions</h1>
-
-    <a href="/new-question.php">Nouveau</a>
+    <h1>Mes QCMs</h1>
+    <a href="/new-qcm.php">Nouveau</a>
     <table class="table table-dark table-hover" border="1">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Id qcm</th>
                 <th>Titre</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach($questions as $q): ?>
+            <?php foreach($qcms as $qcm): ?>
             <tr>
-                <td><?= $q->getId() ?></td>
-                
-                <td><?= $q->getTitle() ?></td>
+                <td><?= $qcm->getId() ?></td>
+                <td><?= $qcm->getTitle() ?></td>
                 <td>
-                    <a href="/edit-question.php?id=<?= $q->getId() ?>">Modifier</a>
-                    <a href="/delete-question.php?id=<?= $q->getId() ?>">Supprimer</a>
+                    
+                    <a href="/edit-qcm.php?id=<?= $qcm->getId() ?>">Modifier</a>
+                    <a href="/delete-qcm.php?id=<?= $qcm->getId() ?>">Supprimer</a>
                 </td>
             </tr>
             <?php endforeach; ?>

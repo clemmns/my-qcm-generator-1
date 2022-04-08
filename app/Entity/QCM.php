@@ -74,7 +74,7 @@ class QCM
      */
     public function show()
     {
-       include 'template.php';
+        include 'template.php';
     }
 
     /**
@@ -96,5 +96,4 @@ class QCM
     }
 
 
-    
 }

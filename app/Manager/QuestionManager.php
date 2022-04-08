@@ -24,13 +24,13 @@ class QuestionManager
         $sql = 'SELECT * FROM question';
         $req = $this->pdo->prepare($sql);
         $req->execute();
-        $qcms = $req->fetchAll(PDO::FETCH_ASSOC);
+        $qs = $req->fetchAll(PDO::FETCH_ASSOC);
         $result = [];
-        foreach($qcms as $qcm)
+        foreach($qs as $q)
         {
             $obj = new Question();
-            $obj->setId($qcm['id']);
-            $obj->setTitle($qcm['title']);
+            $obj->setId($q['id']);
+            $obj->setTitle($q['title']);
             $result[] = $obj;
         }
 
@@ -78,5 +78,20 @@ class QuestionManager
         $req = $this->pdo->prepare($sql);
         return $req->execute(compact('id','title','id_qcm'));
     }
+
+    public function deleteQuestion(int $id) :void
+    {
+        $sql = "DELETE FROM question WHERE id = :id";
+        $req = $this->pdo->prepare($sql);
+        $req->execute(['id' => $id]);
+    }
+
+    // public function getQcmTitle(int $id, string $title, int $id_qcm)
+    // {
+    //     $sql = "SELECT qcm.title = :title_qcm FROM qcm INNER JOIN question ON qcm.id = question.id_qcm";
+    //     $req = $this->pdo->prepare($sql);
+    //     $req->execute(['qcm.title' => $title_qcm]);
+    //     return $title_qcm;
+    // }
 
 }

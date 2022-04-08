@@ -23,7 +23,31 @@ if(isset($_POST['submit']))
     {
         $message = "Le titre est obligatoire";
     }
+
+    {
+        if(!empty($_POST['text']))
+        {
+            require '../app/Manager/QuestionManager.php';
+            $manager = new QuestionManager();
+            $qcmId = $manager->insert($_POST['text']);
+    
+            if($questionId)
+            {
+                header('Location: /'); die;
+            }
+            else
+            {
+                $message = "Une erreur s'est produite lors de l'enregistrement";
+            }
+        }
+        else
+        {
+            $message = "La question est obligatoire";
+        }
+    }
 }
+
+
 
 
 require '../template/new-qcm.tpl.php';

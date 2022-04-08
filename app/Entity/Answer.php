@@ -2,12 +2,15 @@
 
 class Answer
 {
+    private int $id;
 
     private string $text;
 
     private bool $isTheGoodAnswer;
 
-    public function __construct(string $text, bool $isTheGoodAnswer = false)
+    private int $id_question;
+
+    public function __construct(int $id, string $text, bool $isTheGoodAnswer = false, int $id_question )
     {
         $this->setText($text)->setIsTheGoodAnswer($isTheGoodAnswer);
     }
@@ -42,7 +45,7 @@ class Answer
      */ 
     public function getIsTheGoodAnswer()
     {
-        return $this->isTheGoodAnswer;
+        return $this->is_the_good;
     }
 
     /**
@@ -52,7 +55,47 @@ class Answer
      */ 
     public function setIsTheGoodAnswer($isTheGoodAnswer)
     {
-        $this->isTheGoodAnswer = $isTheGoodAnswer;
+        $this->is_the_good = $isTheGoodAnswer;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+    /**
+     * Get the value of id
+     */ 
+    public function getIdQuestion()
+    {
+        return $this->id_question;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setIdQuestion($id)
+    {
+        $this->id = $id_question;
 
         return $this;
     }
